@@ -1,4 +1,7 @@
 package ex20221123
+
+import ex20221122.todayWeather
+
 /**람다식*/
 fun main() {
     // 람다 대수
@@ -10,7 +13,38 @@ fun main() {
 
 
     // 더하기 기능을 필요할 때마다 사용하려면 변수에 저장
+    // 1. 람다식의 매개변수에 자료형이 지정되어 있다면
+    //    변수에서 자료형을 생략 가능
+    // 2. 변수의 매개변수 자료형이 지정되어 있다면 람다식의 매개변수
+    //    자료형은 생략 가능
+    // 단 함다식과 변수의 자료형을 둘 다 생략하면 추론 불가
     /** 더하기 기능을 가진 람다식 {매개변수 -> 리턴값}*/
-    val sum:(Int,Int)-> Int ={ x: Int, y: Int -> x + y }
-    println(sum(3,4))
+    val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+
+    /**더하기 기능을 가진 람다식. 변수의 자료형 생략,매개변수에 자료형을 지정*/
+    val sum1 = { x: Int, y: Int -> x + y }
+
+    /**더하기 기능을 가진 람다식. 변수에 자료형 지정,매개변수의 자료형을 생략*/
+    val sum2: (Int, Int) -> Int = { x, y -> x + y }
+    println(sum(3, 4))
+
+    // hello 라는 변수에 아래 함수를 람다식으로 담기
+    fun greet(): Unit {
+        println("Hello Kotlin")
+    }
+    // val/var 변수명 : (매개변수의 자료형) -> 리턴타입 = 람다식
+
+    /**Hello Kotlin 출력, 람다식*/
+    val hello: () -> Unit = { println("Hello Kotlin") }
+    hello()
+    // 다음은 정사각형의 넓이를 구하는 함수 입니다. 람다식으로 바꿔주세요
+    // square2 변수 선언
+    fun square1(x: Int): Int {
+        return x * x
+    }
+
+    /**제곱 반환, 람다식*/
+    val square2: (Int) -> Int = { x -> x * x }
+    
+    // 내장함수와 리턴타입을 잘 알고 있어야 람다식을 잘 사용할 수 있다
 }
